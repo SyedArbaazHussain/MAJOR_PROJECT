@@ -153,8 +153,8 @@ For any questions or feedback, please contact us at Issues Pages.
 ## Authors
 
 - [Syed Arbaaz Hussain](https://github.com/SyedArbaazHussain)
-- [Adithi Ngatty](https://github.com/AdithiNgatty)
+- [Adithi N Gatty](https://github.com/AdithiNgatty)
 - [Prabuddh Shetty](https://github.com/Prabuddhshetty901)
-- [Shreya Rao](https://github.com/shreyarao515)
+- [Shreya S Rao](https://github.com/shreyarao515)
 ---
 **Fall Safe** is developed by the above contributors. For more information, visit [our GitHub repository](https://github.com/SyedArbaazHussain/MAJOR_PROJECT).
