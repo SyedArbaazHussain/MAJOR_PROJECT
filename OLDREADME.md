@@ -27,7 +27,6 @@
    ```bash
    mkdir YOLO_PROJECT/yolov8-python
    cd YOLO_PROJECT/yolov8-python
-   ```
 
 3. **Install Anaconda**
    - Download and install from [Anaconda's official website](https://www.anaconda.com/).
@@ -57,18 +56,41 @@
    ```
 
 2. **Get Labelled Dataset from Roboflow**
-   - Upload images to Roboflow and label them as either `fall` or `nofall`.
-   - Discard any images that are not relevant by marking them as null.
-   - Download the structured dataset from Roboflow.
+   - Structure of dataset are as follows:
+     ```
+     dataset
+      ├── train
+      │   ├── images
+      │   │   ├── image0.jpg
+      │   │   ├── image1.jpg
+      │   ├── labels
+      │   │   ├── image0.txt
+      │   │   ├── image1.txt
+      ├── val
+      │   ├── images
+      │   │   ├── image0.jpg
+      │   │   ├── image1.jpg
+      │   ├── labels
+      │   │   ├── image0.txt
+      │   │   ├── image1.txt
+      ├── test
+      │   ├── images
+      │   │   ├── image0.jpg
+      │   │   ├── image1.jpg
+      │   ├── labels
+      │   │   ├── image0.txt
+      │   │   ├── image1.txt
 
-3. **Organize the dataset using Organize.py**
-   - Edit Organize.py according to the dataset path.
-   - Organize the dataset by:
+     ```
+
+3. **Organize the dataset by using Organize.py**
+   - Edit Organize.py according to the dataset path
+   - Orgnaize the dataset by:
      ```bash
      python Organize.py
      ```
 
-4. **Dataset Structure**
+5. **Dataset Structure**
    - Dataset Structure will become as follows:
      ```
      dataset
@@ -93,24 +115,25 @@
       │   ├── nofall
       │   │   ├── image0.jpg
       │   │   ├── image1.jpg
+
      ```
 
-5. **Train the Model**
+3. **Train the Model**
    ```bash
-   yolo classify train model=yolov8l-cls.pt data="path/to/dataset" imgsz=224 device=0 workers=2 batch=16 epochs=100 patience=50 name=yolov8_fallsafe_classification
+   yolo classify train model=yolov8l-cls.pt data="\path\data\dataset" imgsz=224 device=0 workers=2 batch=16 epochs=100 patience=50 name=yolov8_fallsafe_classification
    ```
 
-6. **Continue Training**
+4. **Continue Training**
    ```bash
    yolo classify train model=runs/classify/yolov8_fallsafe_classification/weights/last.pt resume=True
    ```
 
-7. **Perform Classification**
+5. **Perform Classification**
    ```bash
    yolo classify predict model=runs/classify/yolov8_fallsafe_classification/weights/best.pt source="inference/classify/image.jpg" save=True
    ```
 
-8. **Real-Time Classification via Camera**
+6. **Real-Time Classification via Camera**
    ```bash
    yolo detect predict model=runs/classify/yolov8_fallsafe_classification/weights/best.pt source="0" save=True conf=0.5 show=True save_txt=True line_thickness=1
    ```
@@ -133,7 +156,5 @@ For any questions or feedback, please contact us at Issues Pages.
 - [Adithi N Gatty](https://github.com/AdithiNgatty)
 - [Prabuddh Shetty](https://github.com/Prabuddhshetty901)
 - [Shreya S Rao](https://github.com/shreyarao515)
-
 ---
-
 **Fall Safe** is developed by the above contributors. For more information, visit [our GitHub repository](https://github.com/SyedArbaazHussain/MAJOR_PROJECT).
